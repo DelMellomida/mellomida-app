@@ -9,9 +9,6 @@ class UserServiceProvider extends ServiceProvider
 {
     protected $app;
 
-    /**
-     * Register services.
-     */
     public function register(): void
     {
         $this->app->singleton(UserService::class, function ($app) {

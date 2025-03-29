@@ -5,7 +5,7 @@ namespace App\Providers;
 use Illuminate\Support\ServiceProvider;
 use App\Services\ProductService;
 
-class UserServiceProvider extends ServiceProvider
+class ProductServiceProvider extends ServiceProvider
 {
     protected $app;
 

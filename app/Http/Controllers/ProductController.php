@@ -26,7 +26,7 @@ class ProductController extends Controller
         $data = [
             'products' => $productService->listProducts(),
             'tasks' => $this->taskService->getAllTasks(),
-            // 'sharedVariable' => 'Shared Variable'
+            // 'sharedVariable' => $productKey
         ];
 
         return view('products.index', $data);

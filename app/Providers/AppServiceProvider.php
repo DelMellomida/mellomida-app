@@ -26,6 +26,6 @@ class AppServiceProvider extends ServiceProvider
         // View::share('sharedVariable', "Shared from: $source");
         
         // View::share('sharedVariable', 'I am from AppServiceProvider');
-        view()->share('sharedVariable', 'I am from AppServiceProvider');
+        View()->share('sharedVariable', 'I am from AppServiceProvider');
     }
 }

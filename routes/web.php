@@ -10,8 +10,12 @@ use App\Http\Controllers\ProductController;
 use Illuminate\Support\Facades\Response;
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('welcome',['name'=>'mellomida-app']);
 });
+
+Route::get('/users', [UserController::class, 'index']);
+
+Route::resource('products', ProductController::class);
 
 Route::get('/test', function (Request $request) {
     $input = $request->input("value");
@@ -79,11 +83,13 @@ Route::post('/token', function(Request $request) {
 });
 
 // Controller -> Middleware
-Route::get('/users', [UserController::class, 'index']) -> middleware('user-middleware');
+// Route::get('/users', [UserController::class, 'index']) -> middleware('user-middleware');
 
-Route::resource('products', ProductController::class);
+// Route::resource('products', ProductController::class);
 
 Route::get('/products-list', function(ProductService $productService) {
     $data['products'] = $productService->listProducts();
     return view('products.list', $data);
 });
+
+Route::get('/users', [UserController::class, 'index']);

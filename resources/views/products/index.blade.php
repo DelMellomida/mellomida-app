@@ -1,40 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
-    <p>Products: </p>
-    <table>
-        <thead>
-            <tr>
-                @foreach (['Id', 'Name', 'Category'] as $column)
-                    <td>{{$column}}</td>
-                @endforeach
-            </tr>
-        </thead>
-        <tbody>
-            @foreach ($products as $product)
+<x-layout>
+    <x-slot:heading>Product List</x-slot:heading>
+    <x-table>
+            <thead>
                 <tr>
-                    <td>{{$product['id']}}</td>
-                    <td>{{$product['name']}}</td>
-                    <td>{{$product['category']}}</td>
+                    <th scope="col">Id</th>
+                    <th scope="col">Name</th>
+                    <th scope="col">Category</th>
                 </tr>
-            @endforeach
-        </tbody>
-    </table>
-
-    <p>Tasks:</p>
-    <ul>
-        @foreach ($tasks as $task)
-            <li>{{$task}}</li>
-        @endforeach
-    </ul>
-
-    <p>Global Variables:</p>
-    <p>{{$sharedVariable}}</p>
-    <p>Product Key: {{$productKey}}</p>
-</body>
-</html>
+            </thead>
+            <tbody>
+                @foreach ($products as $product)
+                    <tr>
+                        <th scope="row">{{ $product['id'] }}</th>
+                        <td scope="row">{{ $product['name'] }}</td>
+                        <td scope="row">{{ $product['category'] }}</td>
+                    </tr>
+                @endforeach
+            </tbody>
+    </x-table>
+</x-layout>
